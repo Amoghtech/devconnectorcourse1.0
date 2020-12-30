@@ -1,11 +1,17 @@
-import React,{Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
- const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
+      <li>
+        <Link to='/dashboard'>
+          <i className='fas fa-user'></i>{' '}
+          <span className='hide-sm'>Dashboard</span>
+        </Link>
+      </li>
       <li>
         <a onClick={logout} href='#!'>
           <i className='fas fa-sign-out-alt'></i>{' '}
@@ -35,9 +41,11 @@ import { logout } from '../../actions/auth';
           <i className='fas fa-code'></i> DevConnector
         </Link>
       </h1>
-      {!loading && (<Fragment>{isAuthenticated?authLinks:guestLinks}</Fragment>)}
+      {!loading && (
+        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+      )}
     </nav>
-  );/*if user has logged in then loading will be false so !loading will be true */
+  ); /*if user has logged in then loading will be false so !loading will be true */
 };
 
 Navbar.propTypes = {

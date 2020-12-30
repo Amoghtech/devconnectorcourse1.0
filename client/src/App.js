@@ -11,8 +11,11 @@ import { Provider } from 'react-redux';
 import store from './store';
 import setAuthtoken from './utils/setAuthtoken';
 import Dashboard from './components/dashboard/Dashboard';
+import Createprofile from './components/profile-form/Createprofile';
 import PrivateRoute from './components/routing/PrivateRoute';
-
+import Editprofile from './components/profile-form/Editprofile';
+import AddEducation from './components/profile-form/AddEducation'
+import Addexperience from './components/profile-form/Addexperience'
 
 const App = () => {
   useEffect(() => {
@@ -35,6 +38,26 @@ const App = () => {
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
+              <PrivateRoute
+                exact
+                path='/create-profile'
+                component={Createprofile}
+              />
+              <PrivateRoute
+                exact
+                path='/add-experience'
+                component={Addexperience}
+              />
+              <PrivateRoute
+                exact
+                path='/edit-profile'
+                component={Editprofile}
+              />
+               <PrivateRoute
+                exact
+                path='/add-education'
+                component={AddEducation}
+              />
             </Switch>
           </section>
         </Fragment>
