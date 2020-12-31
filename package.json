@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
+    "eslint-config-react-app": "^6.0.0",
     "nodemon": "^2.0.6"
   }
 }

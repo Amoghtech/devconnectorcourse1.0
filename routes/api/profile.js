@@ -3,6 +3,8 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const Post = require('../../models/Post');
+
 const { check, validationResult } = require('express-validator');
 const request = require('request');
 const config = require('config');
@@ -180,6 +182,9 @@ router.get('/user/:user_id', async (req, res) => {
 // @access   Private
 router.delete('/', auth, async (req, res) => {
   try {
+    // Remove users post
+    await Post.deleteMany({ user: req.user.id });/*if there are more than one object to be deleted */
+
     // Remove profile
     await Profile.findOneAndRemove({ user: req.user.id });
     // Remove user
@@ -371,8 +376,9 @@ router.get('/github/:username', async (req, res) => {
       if (error) console.error(error);
 
       if (response.statusCode !== 200) {
-     return    res.status(404).json({
-          msg: 'NO github profile found',   /*If we don't put this 'return' then we will face cannot set headers */
+        return res.status(404).json({
+          msg:
+            'NO github profile found' /*If we don't put this 'return' then we will face cannot set headers */,
         }); /*If there is not github profile */
       }
       res.json(

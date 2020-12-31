@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addExperience } from '../../actions/profile';
 
-const Addexperience = ({ addExperience, history }) => {
+const AddExperience = ({ addExperience, history }) => {
   const [formdata, setformdata] = useState({
     company: '',
     title: '',
@@ -121,8 +121,8 @@ const Addexperience = ({ addExperience, history }) => {
   );
 };
 
-Addexperience.propTypes = {
+AddExperience.propTypes = {
   addExperience: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addExperience })(withRouter(Addexperience));
+export default connect(null, { addExperience })(AddExperience);

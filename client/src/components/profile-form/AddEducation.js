@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState,withRouter } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -91,7 +91,7 @@ const AddEducation = ({ addEducation, history }) => {
                 toggledisabled(!todatedisabled);
               }}
             />{' '}
-            Current Job
+            Current School
           </p>
         </div>
 
@@ -128,3 +128,4 @@ AddEducation.propTypes = {
 };
 
 export default connect(null, { addEducation })(AddEducation);
+// Don't put withRouter
