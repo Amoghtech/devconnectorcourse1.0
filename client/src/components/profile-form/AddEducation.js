@@ -1,5 +1,5 @@
-import React, { Fragment, useState,withRouter } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment, useState } from 'react';
+import { Link,withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addEducation } from '../../actions/profile';
@@ -102,6 +102,7 @@ const AddEducation = ({ addEducation, history }) => {
             value={to}
             name='to'
             disabled={todatedisabled ? 'disabled' : ''}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div className='form-group'>
@@ -127,5 +128,5 @@ AddEducation.propTypes = {
   addEducation: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addEducation })(AddEducation);
+export default connect(null, { addEducation })(withRouter(AddEducation));
 // Don't put withRouter

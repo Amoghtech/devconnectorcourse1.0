@@ -102,14 +102,17 @@ router.post(
     if (youtube) {
       profileFields.social.youtube = youtube;
     }
-    if (githubusername) {
+    if (twitter) {
       profileFields.social.twitter = twitter;
     }
-    if (githubusername) {
+    if (facebook) {
       profileFields.social.facebook = facebook;
     }
-    if (githubusername) {
+    if (instagram) {
       profileFields.social.instagram = instagram;
+    }
+    if (linkedin) {
+      profileFields.social.linkedin = linkedin;
     }
 
     try {

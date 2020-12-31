@@ -84,7 +84,7 @@ const AddExperience = ({ addExperience, history }) => {
               name='current'
               checked={current}
               value={current}
-              onChange={(e) => {
+              onChange={() => {
                 setformdata({ ...formdata, current: !current });
                 toggledisabled(!todatedisabled);
               }}
@@ -100,6 +100,7 @@ const AddExperience = ({ addExperience, history }) => {
             value={to}
             name='to'
             disabled={todatedisabled ? 'disabled' : ''}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div class='form-group'>
@@ -125,4 +126,4 @@ AddExperience.propTypes = {
   addExperience: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addExperience })(AddExperience);
+export default connect(null, { addExperience })(withRouter(AddExperience));

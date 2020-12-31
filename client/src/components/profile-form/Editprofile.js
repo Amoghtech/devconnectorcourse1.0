@@ -31,11 +31,11 @@ const Editprofile = ({
   });
   
   
-  /*
-  useEffect(() => {
+  
+ /* useEffect(() => {
     getCurrentProfile();
     // For filling the old informatiuon of user
-    setformdata({
+   /* setformdata({
       company: loading || !profile.company ? '' : profile.company,
       website: loading || !profile.website ? '' : profile.website,
       location: loading || !profile.location ? '' : profile.location,
@@ -51,11 +51,11 @@ const Editprofile = ({
       instagram: loading || !profile.instagram ? '' : profile.instagram,
     });
   }, [
-    loading,
+    loading,getCurrentProfile
   ]); /*if loading is happening or there is no profile user name, thenm it will not fill this */
 
 
-  useEffect(() => {
+ useEffect(() => {
     if (!profile) getCurrentProfile();
     if (!loading && profile) {
       const profileData = { ...initialState };
@@ -69,7 +69,7 @@ const Editprofile = ({
         profileData.skills = profileData.skills.join(', ');
      setformdata(profileData);
     }
-  }, [loading, getCurrentProfile, profile]);
+  }, [loading, getCurrentProfile, profile]); 
 
   const {
     company,
@@ -271,7 +271,8 @@ const Editprofile = ({
       </form>
     </Fragment>
   );
-};
+  };
+
 
 Editprofile.propTypes = {
   createprofile: PropTypes.func.isRequired,
