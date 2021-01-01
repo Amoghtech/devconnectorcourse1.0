@@ -44,15 +44,18 @@ export default function (state = initialState, action) {
         ...state,
         error: payload,
         loading: false,
+        profile:null
       };
     case CLEAR_PROFILE:
       return {
         ...state,
-        prfoile: null,
+        profile: null,
         repos: [],
-        loading: false,
+        
       }; /*if user logout then clear all its profile contents */
     default:
       return state;
   }
 }
+
+// loading: false,

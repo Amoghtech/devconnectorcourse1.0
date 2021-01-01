@@ -8,7 +8,7 @@ import {
   UPDATE_PROFILE,
   ACCOUNT_DELETED,
   CLEAR_PROFILE,
-  GET_REPOS
+  GET_REPOS,
 } from './types';
 
 // Get a current user's profile
@@ -21,6 +21,7 @@ export const getCurrentProfile = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    dispatch({ type: CLEAR_PROFILE });
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
@@ -88,7 +89,7 @@ export const createprofile = (formdata, history, edit = false) => async (
   try {
     const config = {
       headers: {
-        'contant-Type': 'application/json',
+        'Content-Type': 'application/json',
       },
     };
 

@@ -34,7 +34,7 @@ router.post(
       res.json(post);
     } catch (err) {
       console.error(err.message);
-      res.status(500).send('Server error');
+      res.status(500).send("Server error");
     }
   }
 );
@@ -180,7 +180,7 @@ router.post(
   '/comment/:id',
   [auth, [check('text', 'Text is required').not().isEmpty()]],
   async (req, res) => {
-    errors = validationResult(req);
+  const  errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
@@ -188,7 +188,7 @@ router.post(
     try {
       const user = await User.findById(req.user.id).select('-password');
       const post = await Post.findById(req.params.id);
-      const newComment = new Post({
+      const newComment = ({
         text: req.body.text,
         name: user.name,
         avatar: user.avatar,
